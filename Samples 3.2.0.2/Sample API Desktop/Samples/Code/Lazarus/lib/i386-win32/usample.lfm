@@ -1,0 +1,754 @@
+object Formulario: TFormulario
+  Left = 222
+  Height = 562
+  Top = 120
+  Width = 1079
+  BorderStyle = bsSingle
+  Caption = 'Formulario'
+  ClientHeight = 562
+  ClientWidth = 1079
+  OnCreate = FormCreate
+  Position = poDesktopCenter
+  LCLVersion = '1.6.2.0'
+  object PageControlPrincipal: TPageControl
+    Left = 16
+    Height = 480
+    Top = 72
+    Width = 624
+    ActivePage = TabSheet2
+    TabIndex = 7
+    TabOrder = 4
+    object TabSheetPagamentoDebito: TTabSheet
+      Caption = 'Pagamento Débito'
+      ClientHeight = 452
+      ClientWidth = 616
+      object GroupBoxDadosPagamentoDebito: TGroupBox
+        Left = 8
+        Height = 376
+        Top = 8
+        Width = 593
+        Caption = 'Dados do Pagamento Débito'
+        ClientHeight = 356
+        ClientWidth = 589
+        TabOrder = 0
+        object LabelValorPagamentoDebito: TLabel
+          Left = 14
+          Height = 15
+          Top = 8
+          Width = 29
+          Caption = 'Valor:'
+          ParentColor = False
+        end
+        object FloatSpinEditValorPagamentoDebito: TFloatSpinEdit
+          Left = 14
+          Height = 23
+          Top = 36
+          Width = 128
+          Increment = 1
+          MaxValue = 9999999
+          MinValue = 0.1
+          TabOrder = 0
+          Value = 0.1
+        end
+      end
+      object ButtonExecutarDebito: TButton
+        Left = 438
+        Height = 34
+        Top = 400
+        Width = 163
+        Caption = 'Executar Operaçãos'
+        OnClick = OnButtonExecutarDebitoClick
+        TabOrder = 1
+      end
+    end
+    object TabSheetPagamentoCredito: TTabSheet
+      Caption = 'Pagamento Crédito'
+      ClientHeight = 452
+      ClientWidth = 616
+      object GroupBoxDadosPagamentoCredito: TGroupBox
+        Left = 8
+        Height = 376
+        Top = 8
+        Width = 593
+        Caption = 'Dados do Pagamento Crédito'
+        ClientHeight = 356
+        ClientWidth = 589
+        TabOrder = 0
+        object LabelValorPagamentoCredito: TLabel
+          Left = 14
+          Height = 15
+          Top = 8
+          Width = 29
+          Caption = 'Valor:'
+          ParentColor = False
+        end
+        object FloatSpinEditValorPagamentoCredito: TFloatSpinEdit
+          Left = 18
+          Height = 23
+          Top = 30
+          Width = 128
+          Increment = 1
+          MaxValue = 9999999
+          MinValue = 0.1
+          TabOrder = 0
+          Value = 0.1
+        end
+        object LabelPagamentoCreditoComParcelas: TLabel
+          Left = 14
+          Height = 15
+          Top = 70
+          Width = 112
+          Caption = 'Transação Parcelada?'
+          ParentColor = False
+        end
+        object LabelTipoParcelamentoPagamentoCredito: TLabel
+          Left = 14
+          Height = 15
+          Top = 130
+          Width = 119
+          Caption = 'Tipo de Parcelamento:'
+          ParentColor = False
+          Visible = False
+        end
+        object ComboBoxTipoParcelamentoPagamentoCredito: TComboBox
+          Left = 30
+          Height = 23
+          Top = 154
+          Width = 276
+          ItemHeight = 15
+          ItemIndex = 0
+          Items.Strings = (
+            'Administração'
+            'Loja'
+          )
+          Style = csDropDownList
+          TabOrder = 2
+          Text = 'Administração'
+          Visible = False
+        end
+        object LabelQuantidadeParcelasPagamentoCredito: TLabel
+          Left = 14
+          Height = 15
+          Top = 194
+          Width = 127
+          Caption = 'Quantidade de parcelas:'
+          ParentColor = False
+          Visible = False
+        end
+        object FloatSpinEditQuantidadeParcelasPagamentoCredito: TFloatSpinEdit
+          Left = 30
+          Height = 23
+          Top = 222
+          Width = 64
+          DecimalPlaces = 0
+          Increment = 1
+          MaxValue = 99
+          MinValue = 2
+          TabOrder = 1
+          Value = 2
+          Visible = False
+        end
+      end
+      object ButtonExecutarCredito: TButton
+        Left = 438
+        Height = 34
+        Top = 400
+        Width = 163
+        Caption = 'Executar Operação'
+        OnClick = OnButtonExecutarCreditoClick
+        TabOrder = 1
+      end
+      object RadioButtonPagamentoCreditoComParcelas: TRadioButton
+        Left = 41
+        Height = 19
+        Top = 125
+        Width = 40
+        Caption = 'Sim'
+        OnClick = OnRadioButtonPagamentoCreditoComParcelasClick
+        TabOrder = 2
+      end
+      object RadioButtonPagamentoCreditoSemParcelas: TRadioButton
+        Left = 97
+        Height = 19
+        Top = 125
+        Width = 42
+        Caption = 'Não'
+        Checked = True
+        OnClick = OnRadioButtonPagamentoCreditoSemParcelasClick
+        TabOrder = 3
+        TabStop = True
+      end
+    end
+    object TabSheetPagamentoCrediario: TTabSheet
+      Caption = 'Pagamento Crediário'
+      ClientHeight = 452
+      ClientWidth = 616
+      object GroupBoxDadosPagamentoCrediario: TGroupBox
+        Left = 8
+        Height = 376
+        Top = 8
+        Width = 593
+        Caption = 'Dados do Pagamento Crediário'
+        ClientHeight = 356
+        ClientWidth = 589
+        TabOrder = 0
+        object LabelValorPagamentoCrediario: TLabel
+          Left = 14
+          Height = 15
+          Top = 8
+          Width = 29
+          Caption = 'Valor:'
+          ParentColor = False
+        end
+        object FloatSpinEditValorPagamentoCrediario: TFloatSpinEdit
+          Left = 28
+          Height = 23
+          Top = 32
+          Width = 128
+          Increment = 1
+          MaxValue = 9999999
+          MinValue = 0.1
+          TabOrder = 1
+          Value = 0.1
+        end
+        object LabelQuantidadeParcelasPagamentoCrediario: TLabel
+          Left = 16
+          Height = 15
+          Top = 71
+          Width = 127
+          Caption = 'Quantidade de parcelas:'
+          ParentColor = False
+        end
+        object FloatSpinEditQuantidadeParcelasPagamentoCrediario: TFloatSpinEdit
+          Left = 28
+          Height = 23
+          Top = 99
+          Width = 64
+          DecimalPlaces = 0
+          Increment = 1
+          MaxValue = 99
+          MinValue = 2
+          TabOrder = 0
+          Value = 2
+        end
+      end
+      object ButtonExecutarCrediario: TButton
+        Left = 438
+        Height = 34
+        Top = 400
+        Width = 163
+        Caption = 'Executar Operação'
+        OnClick = OnButtonExecutarCrediarioClick
+        TabOrder = 1
+      end
+    end
+    object TabSheetReimpressaoCupom: TTabSheet
+      Caption = 'Reimpressão'
+      ClientHeight = 452
+      ClientWidth = 616
+      object GroupBoxDadosReimpressaoCupom: TGroupBox
+        Left = 8
+        Height = 376
+        Top = 8
+        Width = 593
+        Caption = 'Dados da Reimpressão'
+        ClientHeight = 356
+        ClientWidth = 589
+        TabOrder = 0
+        object LabelNumeroControleReimpressaoCupom: TLabel
+          Left = 14
+          Height = 15
+          Top = 64
+          Width = 112
+          Caption = 'Número de Controle:'
+          ParentColor = False
+          Visible = False
+        end
+        object LabelReimprimirUltimoCupom: TLabel
+          Left = 14
+          Height = 15
+          Top = 8
+          Width = 141
+          Caption = 'Reimprimir Último Cupom'
+          ParentColor = False
+        end
+        object RadioButtonNaoReimprimirUltimoCupom: TRadioButton
+          Left = 82
+          Height = 19
+          Top = 33
+          Width = 42
+          Caption = 'Não'
+          OnClick = OnRadioButtonNaoReimprimirUltimoCupomClick
+          TabOrder = 0
+        end
+        object RadioButtonReimprimirUltimoCupom: TRadioButton
+          Left = 30
+          Height = 19
+          Top = 32
+          Width = 40
+          Caption = 'Sim'
+          Checked = True
+          OnClick = OnRadioButtonReimprimirUltimoCupomClick
+          TabOrder = 1
+          TabStop = True
+        end
+        object PanelViaASerImprimida: TPanel
+          Left = 248
+          Height = 120
+          Top = 8
+          Width = 255
+          ClientHeight = 120
+          ClientWidth = 255
+          ParentColor = False
+          TabOrder = 2
+          object LabelQualViaASerImprimida: TLabel
+            Left = 24
+            Height = 15
+            Top = 32
+            Width = 48
+            Caption = 'Qual via?'
+            ParentColor = False
+          end
+          object RadioButtonReimprimirTodasVias: TRadioButton
+            Left = 24
+            Height = 19
+            Top = 64
+            Width = 52
+            Caption = 'Todas'
+            Checked = True
+            OnClick = OnRadioButtonReimprimirTodasViasClick
+            TabOrder = 2
+            TabStop = True
+          end
+          object RadioButtonReimprimirViaLoja: TRadioButton
+            Left = 96
+            Height = 19
+            Top = 64
+            Width = 42
+            Caption = 'Loja'
+            OnClick = OnRadioButtonReimprimirViaLojaClick
+            TabOrder = 0
+          end
+          object RadioButtonReimprimirViaCliente: TRadioButton
+            Left = 152
+            Height = 19
+            Top = 64
+            Width = 57
+            Caption = 'Cliente'
+            OnClick = OnRadioButtonReimprimirViaClienteClick
+            TabOrder = 1
+          end
+        end
+        object TextEditNumeroControleReimpressaoCupom: TEdit
+          Left = 15
+          Height = 23
+          Top = 91
+          Width = 128
+          NumbersOnly = True
+          TabOrder = 3
+          Visible = False
+        end
+      end
+      object ButtonExecutarReimpressao: TButton
+        Left = 438
+        Height = 34
+        Top = 400
+        Width = 163
+        Caption = 'Executar Operação'
+        OnClick = OnButtonExecutarReimpressaoClick
+        TabOrder = 1
+      end
+    end
+    object TabSheetCancelamento: TTabSheet
+      Caption = 'Cancelamento'
+      ClientHeight = 452
+      ClientWidth = 616
+      object GroupBoxDadosCancelamento: TGroupBox
+        Left = 8
+        Height = 376
+        Top = 8
+        Width = 588
+        Caption = 'Dados do Cancelamento'
+        ClientHeight = 356
+        ClientWidth = 584
+        TabOrder = 0
+        object LabelNumeroControleCancelamento: TLabel
+          Left = 14
+          Height = 15
+          Top = 72
+          Width = 112
+          Caption = 'Número de Controle:'
+          ParentColor = False
+        end
+        object LabelSenhaAdministrativaCancelamento: TLabel
+          Left = 14
+          Height = 15
+          Top = 8
+          Width = 115
+          Caption = 'Senha Administrativa:'
+          ParentColor = False
+        end
+        object EditSenhaAdministrativaCancelamento: TEdit
+          Left = 30
+          Height = 23
+          Top = 32
+          Width = 250
+          TabOrder = 0
+          Text = 'cappta'
+        end
+        object TextEditNumeroControleCancelamento: TEdit
+          Left = 30
+          Height = 23
+          Top = 96
+          Width = 128
+          NumbersOnly = True
+          TabOrder = 1
+        end
+      end
+      object ButtonExecutarCancelamento: TButton
+        Left = 436
+        Height = 34
+        Top = 400
+        Width = 163
+        Caption = 'Executar Operação'
+        OnClick = OnButtonExecutarCancelamentoClick
+        TabOrder = 1
+      end
+    end
+    object TabSheet1: TTabSheet
+      Caption = 'Pinpad'
+      ClientHeight = 452
+      ClientWidth = 616
+      object GroupBox1: TGroupBox
+        Left = 8
+        Height = 376
+        Top = 8
+        Width = 593
+        Caption = 'Solicitar informações no pinpad'
+        ClientHeight = 356
+        ClientWidth = 589
+        TabOrder = 2
+        object LabelTipoEntradaPinpad: TLabel
+          Left = 8
+          Height = 15
+          Top = 16
+          Width = 126
+          Caption = 'Tipo de entrada pinpad:'
+          ParentColor = False
+        end
+      end
+      object ComboBoxTipoInformacaoPinpad: TComboBox
+        Left = 48
+        Height = 23
+        Top = 64
+        Width = 110
+        ItemHeight = 15
+        ItemIndex = 0
+        Items.Strings = (
+          'Cpf'
+          'Telefone'
+          'Senha'
+        )
+        TabOrder = 0
+        Text = 'Cpf'
+      end
+      object ButtonSolicitarInformacaoPinpad: TButton
+        Left = 438
+        Height = 34
+        Top = 400
+        Width = 163
+        Caption = 'Executar Operacao'
+        OnClick = OnButtonPegarDadosPinpadClick
+        TabOrder = 1
+      end
+    end
+    object TabSheetTicketCar: TTabSheet
+      Caption = 'Ticket Car'
+      ClientHeight = 452
+      ClientWidth = 616
+      object ButtonExecutarPagamentoTicketCar: TButton
+        Left = 436
+        Height = 34
+        Top = 400
+        Width = 163
+        Caption = 'Executar Operação'
+        OnClick = ButtonExecutarPagamentoTicketCarClick
+        TabOrder = 1
+      end
+      object GroupBoxDadosPagamentoTicketCar: TGroupBox
+        Left = 8
+        Height = 384
+        Top = 8
+        Width = 593
+        Caption = 'Dados do Pagamento Ticket Car'
+        ClientHeight = 364
+        ClientWidth = 589
+        TabOrder = 0
+        object LabelValorPagamentoTicketCar: TLabel
+          Left = 8
+          Height = 15
+          Top = 24
+          Width = 29
+          Caption = 'Valor:'
+          ParentColor = False
+        end
+        object FloatSpinEditValorPagamentoTicketCar: TFloatSpinEdit
+          Left = 48
+          Height = 23
+          Top = 16
+          Width = 128
+          Increment = 1
+          MaxValue = 9999999
+          MinValue = 0.1
+          TabOrder = 0
+          Value = 0.1
+        end
+        object LabelNumeroSerialPagamentoTicketCar: TLabel
+          Left = 8
+          Height = 15
+          Top = 72
+          Width = 131
+          Caption = 'Número de Série do ECF:'
+          ParentColor = False
+        end
+        object LabelNumeroDocumentoFiscalPagamentoTicketCar: TLabel
+          Left = 320
+          Height = 15
+          Top = 72
+          Width = 106
+          Caption = 'Número Doc. Fiscal:'
+          ParentColor = False
+        end
+        object EditNumeroSerialTicketCar: TEdit
+          Left = 160
+          Height = 23
+          Top = 64
+          Width = 130
+          TabOrder = 1
+        end
+        object EditNumeroDocumentoFiscalTicketCar: TEdit
+          Left = 445
+          Height = 23
+          Top = 66
+          Width = 130
+          TabOrder = 2
+        end
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = 'Recarga'
+      ClientHeight = 452
+      ClientWidth = 616
+      object operadoraCombobox: TComboBox
+        Left = 24
+        Height = 23
+        Top = 40
+        Width = 100
+        ItemHeight = 15
+        OnChange = operadoraComboboxChange
+        TabOrder = 0
+      end
+      object Label1: TLabel
+        Left = 24
+        Height = 15
+        Top = 24
+        Width = 50
+        Caption = 'Operador'
+        ParentColor = False
+      end
+      object productCombobox: TComboBox
+        Left = 24
+        Height = 23
+        Top = 160
+        Width = 100
+        ItemHeight = 15
+        OnChange = productComboboxChange
+        TabOrder = 1
+      end
+      object produtosLabel: TLabel
+        Left = 24
+        Height = 15
+        Top = 144
+        Width = 48
+        Caption = 'Produtos'
+        ParentColor = False
+        OnClick = produtosLabelClick
+      end
+      object recarga: TButton
+        Left = 488
+        Height = 25
+        Top = 376
+        Width = 75
+        Caption = 'Recarga'
+        OnClick = recargaClick
+        TabOrder = 2
+      end
+      object valorRecarga: TEdit
+        Left = 24
+        Height = 23
+        Top = 256
+        Width = 80
+        NumbersOnly = True
+        ReadOnly = True
+        TabOrder = 3
+        Text = '0'
+      end
+      object valorLabel: TLabel
+        Left = 24
+        Height = 15
+        Top = 240
+        Width = 26
+        Caption = 'Valor'
+        ParentColor = False
+      end
+      object numero: TEdit
+        Left = 424
+        Height = 23
+        Top = 40
+        Width = 80
+        NumbersOnly = True
+        OnChange = numeroChange
+        TabOrder = 4
+      end
+      object ddd: TEdit
+        Left = 424
+        Height = 23
+        Top = 160
+        Width = 80
+        NumbersOnly = True
+        OnChange = dddChange
+        TabOrder = 5
+      end
+      object numeroLabel: TLabel
+        Left = 424
+        Height = 15
+        Top = 24
+        Width = 44
+        Caption = 'Número'
+        ParentColor = False
+      end
+      object dddLabel: TLabel
+        Left = 424
+        Height = 15
+        Top = 144
+        Width = 24
+        Caption = 'DDD'
+        ParentColor = False
+      end
+    end
+  end
+  object GroupBoxResultado: TGroupBox
+    Left = 648
+    Height = 480
+    Top = 72
+    Width = 409
+    Caption = 'Resultado'
+    ClientHeight = 460
+    ClientWidth = 405
+    TabOrder = 0
+    object TMemoResultado: TMemo
+      Left = 16
+      Height = 488
+      Top = 8
+      Width = 376
+      Color = cl3DLight
+      Font.CharSet = ANSI_CHARSET
+      Font.Height = -13
+      Font.Name = 'Courier New'
+      Font.Pitch = fpFixed
+      Font.Quality = fqDraft
+      ParentFont = False
+      ReadOnly = True
+      ScrollBars = ssVertical
+      TabOrder = 0
+    end
+  end
+  object LabelUsarMultiTef: TLabel
+    Left = 16
+    Height = 15
+    Top = 24
+    Width = 75
+    Caption = 'Usar MultiTef?'
+    ParentColor = False
+  end
+  object RadioButtonUsarMultiTef: TRadioButton
+    Left = 120
+    Height = 19
+    Top = 24
+    Width = 40
+    Caption = 'Sim'
+    OnClick = OnRadioButtonUsarMultiTefClick
+    TabOrder = 1
+  end
+  object RadioButtonNaoUsarMultiTef: TRadioButton
+    Left = 176
+    Height = 19
+    Top = 24
+    Width = 42
+    Caption = 'Não'
+    Checked = True
+    OnClick = OnRadioButtonNaoUsarMultiTefClick
+    TabOrder = 2
+    TabStop = True
+  end
+  object LabelQuantidadeDePagamentosMultiTef: TLabel
+    Left = 256
+    Height = 15
+    Top = 24
+    Width = 150
+    Caption = 'Quantidade de pagamentos:'
+    ParentColor = False
+    Visible = False
+  end
+  object FloatSpinEditQuantidadeDePagamentosMultiTef: TFloatSpinEdit
+    Left = 456
+    Height = 23
+    Top = 20
+    Width = 64
+    DecimalPlaces = 0
+    Increment = 1
+    MaxValue = 99
+    MinValue = 2
+    OnChange = OnFloatSpinEditQuantidadeDePagamentosMultiTefChange
+    TabOrder = 3
+    Value = 2
+    Visible = False
+  end
+  object PanelExibirInterface: TPanel
+    Left = 648
+    Height = 29
+    Top = 12
+    Width = 280
+    ClientHeight = 29
+    ClientWidth = 280
+    TabOrder = 5
+    object lblConfiguracaoInterface: TLabel
+      Left = 8
+      Height = 15
+      Top = 8
+      Width = 107
+      Caption = 'Modo de integração'
+      ParentColor = False
+    end
+    object RadioButtonInterfaceVisivel: TRadioButton
+      Left = 120
+      Height = 19
+      Top = 4
+      Width = 53
+      Caption = 'Visível'
+      Checked = True
+      OnChange = RadioButtonInterfaceVisivelChange
+      TabOrder = 1
+      TabStop = True
+    end
+    object RadioButtonInterfaceInvisivel: TRadioButton
+      Left = 176
+      Height = 19
+      Top = 4
+      Width = 62
+      Caption = 'Invísivel'
+      OnChange = RadioButtonInterfaceInvisivelChange
+      TabOrder = 0
+    end
+  end
+end

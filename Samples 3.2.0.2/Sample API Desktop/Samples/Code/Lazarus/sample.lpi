@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectOptions>
+    <Version Value="9"/>
+    <PathDelim Value="\"/>
+    <General>
+      <Flags>
+        <AlwaysBuild Value="True"/>
+      </Flags>
+      <SessionStorage Value="InProjectDir"/>
+      <MainUnit Value="0"/>
+      <Title Value="sample"/>
+      <ResourceType Value="res"/>
+      <UseXPManifest Value="True"/>
+    </General>
+    <i18n>
+      <EnableI18N LFM="False"/>
+    </i18n>
+    <VersionInfo>
+      <StringTable ProductVersion=""/>
+    </VersionInfo>
+    <BuildModes Count="1">
+      <Item1 Name="Default" Default="True"/>
+    </BuildModes>
+    <PublishOptions>
+      <Version Value="2"/>
+    </PublishOptions>
+    <RunParams>
+      <local>
+        <FormatVersion Value="1"/>
+      </local>
+    </RunParams>
+    <RequiredPackages Count="1">
+      <Item1>
+        <PackageName Value="LCL"/>
+      </Item1>
+    </RequiredPackages>
+    <Units Count="7">
+      <Unit0>
+        <Filename Value="sample.lpr"/>
+        <IsPartOfProject Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="usample.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Formulario"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uSample"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="cappta_gp_api_com_1_0_tlb.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Cappta_Gp_Api_Com_1_0_TLB"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="ticketcarlistaproduto.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormTicketCarListaProdutos"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="TicketCarListaProduto"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="uticketcarprodutotgrid.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uTicketCarProdutoTGrid"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="mscorlib_2_4_tlb.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="mscorlib_2_4_TLB"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="cappta_gp_api_com_1_0_tlb.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Cappta_Gp_Api_Com_1_0_TLB"/>
+      </Unit6>
+    </Units>
+  </ProjectOptions>
+  <CompilerOptions>
+    <Version Value="11"/>
+    <PathDelim Value="\"/>
+    <Target>
+      <Filename Value="sample"/>
+    </Target>
+    <SearchPaths>
+      <IncludeFiles Value="$(ProjOutDir)"/>
+      <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
+    </SearchPaths>
+    <CodeGeneration>
+      <TargetCPU Value="i386"/>
+      <TargetOS Value="win32"/>
+    </CodeGeneration>
+    <Linking>
+      <Options>
+        <Win32>
+          <GraphicApplication Value="True"/>
+        </Win32>
+      </Options>
+    </Linking>
+  </CompilerOptions>
+  <Debugging>
+    <Exceptions Count="3">
+      <Item1>
+        <Name Value="EAbort"/>
+      </Item1>
+      <Item2>
+        <Name Value="ECodetoolError"/>
+      </Item2>
+      <Item3>
+        <Name Value="EFOpenError"/>
+      </Item3>
+    </Exceptions>
+  </Debugging>
+</CONFIG>
